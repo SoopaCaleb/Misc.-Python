@@ -53,14 +53,14 @@ while encryption_key_to_use == "Invalid":
     print("Press 2 to use the premade encryption key")
     decision_input = input()
     encryption_key_to_use = encryption_decision(decision_input)
-    while not valid_num_iterations:
-        num_iterations = input("Enter number of iterations desired here: ")
-        try:
-            num_iterations = int(num_iterations)
-            if num_iterations < 1:
-                print("Invalid Number of Iterations. Try Again.")
-            else:
-                valid_num_iterations = True
-        except ValueError as ve:
+while not valid_num_iterations:
+    num_iterations = input("Enter number of iterations desired here: ")
+    try:
+        num_iterations = int(num_iterations)
+        if num_iterations < 1:
             print("Invalid Number of Iterations. Try Again.")
-    print("Your encrypted result is: " + encrypt(encryption_input, num_iterations, encryption_key_to_use))
+        else:
+            valid_num_iterations = True
+    except ValueError as ve:
+        print("Invalid Number of Iterations. Try Again.")
+print("Your encrypted result is: " + encrypt(encryption_input, num_iterations, encryption_key_to_use))
